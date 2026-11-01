@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import SectionHeader from './SectionHeader'
 import ProjectCard from './ProjectCard'
 import ProjectDetails from './ProjectDetails'
@@ -33,8 +33,23 @@ export default function Projects({ inView }) {
   const prev = () => setActive((a) => (a - 1 + n) % n)
   const next = () => setActive((a) => (a + 1) % n)
 
+  // Swipe left/right on phones; vertical drags still scroll the page
+  const touch = useRef(null)
+  const onTouchStart = (e) => {
+    const t = e.touches[0]
+    touch.current = { x: t.clientX, y: t.clientY }
+  }
+  const onTouchEnd = (e) => {
+    if (!touch.current) return
+    const t = e.changedTouches[0]
+    const dx = t.clientX - touch.current.x
+    const dy = t.clientY - touch.current.y
+    touch.current = null
+    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) (dx < 0 ? next : prev)()
+  }
+
   return (
-    <section id="projects" className="border-t border-[#1A1A1A] py-[120px]">
+    <section id="projects" className="border-t border-[#1A1A1A] py-16 md:py-[120px]">
       <div className="wrap flex flex-wrap items-end justify-between gap-6">
         <SectionHeader index="02" label="Projects" title="Things I've built." />
         <div className="flex items-center gap-3">
@@ -46,7 +61,10 @@ export default function Projects({ inView }) {
         </div>
       </div>
 
-      <div className="relative mx-auto mt-16 h-[320px] w-full max-w-[1400px] md:h-[clamp(320px,50vh,460px)]">
+      <div
+        onTouchStart={onTouchStart}
+        onTouchEnd={onTouchEnd}
+        className="relative mx-auto mt-8 h-[300px] md:mt-16 w-full max-w-[1400px] md:h-[clamp(320px,50vh,460px)]">
         {projects.map((p, i) => {
           const off = offsetOf(i, active)
           return (

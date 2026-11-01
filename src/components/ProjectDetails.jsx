@@ -2,7 +2,7 @@ const opensNewTab = (href) => href.startsWith('http') || /\.(mp4|jpg|png)$/.test
 
 export default function ProjectDetails({ project }) {
   return (
-    <div className="mx-auto mt-14 flex max-w-[820px] flex-col items-center gap-[18px] text-center">
+    <div className="mx-auto mt-8 flex md:mt-14 max-w-[820px] flex-col items-center gap-[18px] text-center">
       <p className="text-2xl leading-snug tracking-[-0.01em] md:text-[28px]">{project.hook}</p>
       <p className="max-w-[640px] text-[17px] leading-relaxed text-soft">{project.desc}</p>
 

@@ -9,10 +9,10 @@ const links = [
 
 export default function Contact() {
   return (
-    <section id="contact" className="border-t border-[#1A1A1A] pb-16 pt-[140px]">
+    <section id="contact" className="border-t border-[#1A1A1A] pb-12 pt-16 md:pb-16 md:pt-[140px]">
       <div className="wrap">
         <div className="font-mono text-[13px] tracking-[0.12em] text-muted">04 — CONTACT</div>
-        <h2 className="mb-[72px] mt-4 text-[56px] font-semibold leading-[0.95] tracking-[-0.045em] md:text-[104px]">
+        <h2 className="mb-10 mt-4 md:mb-[72px] text-[56px] font-semibold leading-[0.95] tracking-[-0.045em] md:text-[104px]">
           Now you know {profile.name}.
           <br />
           <span className="text-muted">Let's talk.</span>

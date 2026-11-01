@@ -6,7 +6,7 @@ function Frame({ image, caption, number }) {
       <span className="absolute -bottom-px -right-px h-3 w-3 border-b border-r border-ink" />
       <div
         className={`flex items-center justify-center overflow-hidden bg-frame ${
-          image.tall ? 'h-[380px]' : 'h-[200px]'
+          image.tall ? 'h-[280px] md:h-[380px]' : 'h-[150px] md:h-[200px]'
         }`}
       >
         {isLogo ? (
@@ -30,12 +30,12 @@ function Frame({ image, caption, number }) {
 
 export default function ExperienceItem({ item, number }) {
   return (
-    <article className="grid items-start gap-4 border-t border-[#1E1E1E] py-12 md:grid-cols-[140px_minmax(0,1fr)_320px] md:gap-10">
+    <article className="grid items-start gap-4 border-t border-[#1E1E1E] py-8 md:py-12 md:grid-cols-[140px_minmax(0,1fr)_320px] md:gap-10">
       <div className="pt-2 font-mono text-[13px] text-muted">{item.when}</div>
 
       <div className="flex flex-col gap-3">
         <div className="font-mono text-xs uppercase tracking-[0.1em] text-muted">{item.org}</div>
-        <h3 className="text-[32px] font-semibold leading-tight tracking-[-0.02em]">{item.role}</h3>
+        <h3 className="text-[26px] md:text-[32px] font-semibold leading-tight tracking-[-0.02em]">{item.role}</h3>
         <p className="max-w-[520px] text-[17px] leading-relaxed text-soft">{item.desc}</p>
 
         {item.roles?.map((r) => (

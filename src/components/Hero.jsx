@@ -5,7 +5,7 @@ const fade =
 
 export default function Hero() {
   return (
-    <section id="hero" className="pb-24 pt-10 md:pt-12">
+    <section id="hero" className="pb-14 pt-8 md:pb-24 md:pt-12">
       <div className="wrap">
         <div className="grid items-center gap-10 md:grid-cols-[0.85fr_1.15fr] md:gap-6">
           <div className="relative z-10 flex flex-col gap-7">
