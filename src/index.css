@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-bg font-sans text-ink antialiased;
+}
+
+/* Sections land below the sticky navbar when jumped to */
+section[id] {
+  scroll-margin-top: 72px;
+}
+
+@layer components {
+  .wrap {
+    @apply mx-auto w-full max-w-[1200px] px-5 md:px-16;
+  }
+
+  .btn-solid {
+    @apply inline-flex h-12 items-center gap-2.5 rounded-full bg-ink px-6 text-[15px] font-semibold text-bg transition-opacity hover:opacity-90;
+  }
+
+  .btn-ghost {
+    @apply inline-flex h-12 items-center gap-2.5 rounded-full border border-edge px-6 text-[15px] font-medium text-ink transition-colors hover:border-ink;
+  }
+
+  .focus-ring {
+    @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink;
+  }
+}
